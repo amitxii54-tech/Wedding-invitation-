@@ -2,459 +2,293 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17130f">
+<meta name="description" content="A premium cinematic Indian wedding invitation demo.">
+<title>Aarav & Riya — The Wedding</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap');
 
-<title>Ananya & Arjun — Wedding Invitation</title>
+:root{
+  --ink:#17130f;--cream:#f7efe1;--paper:#fffaf2;--gold:#d6ad62;--gold2:#f2d48e;
+  --wine:#5e1825;--green:#13251d;--muted:#bcae9b;--line:rgba(214,173,98,.38);
+  --serif:"Cormorant Garamond",Georgia,serif;--script:"Great Vibes",cursive;--sans:"DM Sans",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);overflow-x:hidden}
+body.locked{overflow:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+img{max-width:100%;display:block}
+.section{position:relative;overflow:hidden}
+.container{width:min(1160px,92%);margin:auto}
+.kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold2);margin-bottom:12px}
+.title{font:500 clamp(40px,7vw,78px)/.9 var(--serif);margin:0}
+.subtitle{color:#cfc2b0;max-width:650px;margin:16px auto 0;line-height:1.8;font-size:14px}
 
-<meta name="description" content="A premium Indian wedding invitation for Ananya and Arjun.">
+/* INTRO */
+.intro{position:fixed;inset:0;z-index:10000;background:#100d0a;display:grid;place-items:center;overflow:hidden;transition:opacity 1s,visibility 1s,transform 1s}
+.intro.opened{opacity:0;visibility:hidden;transform:scale(1.04);pointer-events:none}
+.intro:before,.intro:after{content:"";position:absolute;width:80vmax;height:80vmax;border:1px solid rgba(214,173,98,.18);border-radius:50%;animation:spin 35s linear infinite}
+.intro:after{width:58vmax;height:58vmax;animation-direction:reverse;animation-duration:25s}
+.mandala{position:absolute;width:310px;height:310px;border:1px solid rgba(214,173,98,.25);transform:rotate(45deg);border-radius:44%;animation:float 7s ease-in-out infinite}
+.mandala:before,.mandala:after{content:"";position:absolute;inset:25px;border:1px solid rgba(214,173,98,.2);border-radius:44%}
+.intro-card{position:relative;z-index:2;text-align:center;width:min(500px,88%);padding:45px 25px}
+.mini-logo{font:42px var(--script);color:var(--gold2)}
+.intro-card h1{font:500 clamp(58px,15vw,105px)/.78 var(--serif);margin:22px 0 8px}
+.intro-card h1 span{display:block;font:38px var(--script);color:var(--gold2);margin:10px}
+.intro-card p{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#cbbda8}
+.open-btn,.pill-btn{border:1px solid var(--gold);background:rgba(214,173,98,.08);color:#fff3d7;border-radius:999px;padding:14px 24px;cursor:pointer;transition:.35s;display:inline-flex;gap:10px;align-items:center;justify-content:center}
+.open-btn:hover,.pill-btn:hover{background:var(--gold);color:#17130f;transform:translateY(-2px)}
+.open-btn .dot{width:8px;height:8px;border-radius:50%;background:#e8c776;box-shadow:0 0 18px #e8c776}
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+/* floating petals */
+.petals{position:absolute;inset:0;pointer-events:none}
+.petal{position:absolute;width:8px;height:13px;border-radius:100% 0 100% 0;background:rgba(232,199,118,.65);animation:fall linear infinite}
+.petal:nth-child(1){left:8%;animation-duration:8s}.petal:nth-child(2){left:24%;animation-duration:11s;animation-delay:2s}.petal:nth-child(3){left:51%;animation-duration:9s;animation-delay:4s}.petal:nth-child(4){left:76%;animation-duration:12s;animation-delay:1s}.petal:nth-child(5){left:91%;animation-duration:10s;animation-delay:3s}
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+/* NAV */
+.nav{position:absolute;top:0;left:0;right:0;z-index:50;padding:20px 4%;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(#090705,transparent)}
+.brand{font:34px var(--script);color:var(--gold2)}
+.navlinks{display:flex;gap:25px;font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+.navlinks a{opacity:.8;transition:.2s}.navlinks a:hover{opacity:1;color:var(--gold2)}
+.menu{display:none;border:0;background:none;color:#fff;font-size:24px}
 
-<link rel="stylesheet" href="style.css">
+/* HERO */
+.hero{min-height:100svh;display:grid;place-items:center;background:
+linear-gradient(180deg,rgba(9,6,4,.15),rgba(9,6,4,.78)),
+url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=88") center/cover}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,transparent 25%,rgba(0,0,0,.55));pointer-events:none}
+.hero-content{position:relative;z-index:2;text-align:center;padding:110px 0 60px}
+.hero-top{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#f4dfb2}
+.hero h1{font:500 clamp(78px,18vw,175px)/.65 var(--serif);margin:35px 0 20px;text-shadow:0 8px 30px #000}
+.hero h1 span{font:55px var(--script);color:var(--gold2);display:block;margin:22px}
+.hero-meta{font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.hero-location{color:#ead8b5;margin-top:12px}
+.scroll-cue{margin-top:55px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;opacity:.7}
+.scroll-cue b{display:block;width:1px;height:45px;background:var(--gold);margin:12px auto 0}
+
+/* COUNTDOWN */
+.countdown{background:var(--paper);color:var(--ink);padding:65px 0}
+.count-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:780px;margin:35px auto 0}
+.count-box{text-align:center;border-right:1px solid #d8cbb7}.count-box:last-child{border:0}
+.count-num{font:600 clamp(38px,7vw,65px) var(--serif);color:var(--wine)}
+.count-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#806d57}
+.quote{max-width:500px;text-align:center;margin:35px auto 0;font:italic 22px var(--serif);color:#6b5845}
+
+/* COMMON DARK */
+.dark{background:var(--green);padding:105px 0}
+.dark:before{content:"";position:absolute;inset:0;opacity:.13;background-image:radial-gradient(#d6ad62 1px,transparent 1px);background-size:28px 28px}
+.section-head{position:relative;text-align:center;margin-bottom:55px}
+
+/* EVENTS */
+.events{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative}
+.event{min-height:390px;border:1px solid var(--line);border-radius:22px;overflow:hidden;position:relative;background:#211b15;transition:.5s}
+.event:hover{transform:translateY(-10px);border-color:var(--gold)}
+.event-photo{height:205px;background-size:cover;background-position:center;position:relative}
+.event-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(15,11,8,.85))}
+.event-body{padding:18px}
+.event-num{position:absolute;top:16px;right:16px;width:34px;height:34px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold2);z-index:2;font:18px var(--serif)}
+.event h3{font:500 30px var(--serif);margin:0 0 12px;color:#f8e5bc}
+.event p{font-size:11px;line-height:1.8;color:#c7b9a5;margin:5px 0}
+.event strong{color:#f3dfb4;font-weight:500}
+.event .dress{margin-top:16px;color:var(--gold2);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+
+/* STORY */
+.story{background:var(--cream);color:var(--ink);padding:100px 0}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.story-photo{height:540px;border-radius:180px 180px 20px 20px;background:url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=85") center/cover;box-shadow:20px 20px 0 #d7bd8b}
+.story-copy .title{color:#241b14}
+.timeline{margin-top:35px;border-left:1px solid #b49a72;padding-left:25px}
+.tl{margin-bottom:27px;position:relative}.tl:before{content:"";position:absolute;left:-31px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--gold)}
+.tl small{color:#9b7a48;letter-spacing:.12em}.tl h4{font:600 25px var(--serif);margin:5px 0}.tl p{color:#6e6255;font-size:13px;line-height:1.7;margin:0}
+
+/* GALLERY */
+.gallery{background:#100f0c;padding:100px 0}
+.gallery-grid{display:grid;grid-template-columns:1.2fr .8fr .9fr 1.1fr;grid-template-rows:230px 230px;gap:12px}
+.g{border-radius:10px;overflow:hidden;background-size:cover;background-position:center;transition:.5s;filter:saturate(.9)}
+.g:hover{transform:scale(1.02);filter:saturate(1.15)}
+.g1{grid-row:1/3;background-image:url("https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1000&q=85")}
+.g2{background-image:url("https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=900&q=85")}
+.g3{background-image:url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85")}
+.g4{background-image:url("https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=900&q=85")}
+.g5{grid-column:3/5;background-image:url("https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=1100&q=85")}
+
+/* VENUE */
+.venue{background:var(--paper);color:var(--ink);padding:100px 0}
+.venue-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.map-card{height:390px;border-radius:25px;overflow:hidden;position:relative;background:
+linear-gradient(35deg,transparent 49%,rgba(90,70,50,.18) 50%,transparent 51%),
+linear-gradient(120deg,transparent 49%,rgba(90,70,50,.15) 50%,transparent 51%),#e9dfce}
+.map-card:before{content:"";position:absolute;inset:12% 8%;border:2px dashed rgba(94,24,37,.25);border-radius:48% 52% 40% 60%;transform:rotate(-8deg)}
+.pin{position:absolute;left:55%;top:44%;font-size:45px;filter:drop-shadow(0 5px 6px #555)}
+.venue-copy .title{font-size:65px}.venue-copy h3{font:500 34px var(--serif);margin:15px 0}.venue-copy p{color:#655949;line-height:1.8;font-size:14px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.actions .pill-btn{color:var(--ink);border-color:#a9864e}
+
+/* RSVP */
+.rsvp{background:linear-gradient(135deg,#3b1018,#17130f);padding:105px 0;text-align:center}
+.rsvp-box{border:1px solid var(--line);border-radius:30px;padding:55px 25px;max-width:800px;margin:auto;background:rgba(255,255,255,.025)}
+.rsvp h2{font:500 clamp(55px,10vw,90px) var(--serif);margin:10px 0}
+.rsvp p{color:#c8b9a7;max-width:520px;margin:0 auto 25px;line-height:1.8}
+.footer{padding:45px 5%;background:#0c0907;text-align:center;color:#8f8171;font-size:11px;letter-spacing:.12em}
+.footer strong{display:block;font:38px var(--script);color:var(--gold2);letter-spacing:0;margin-bottom:12px}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(7,5,3,.78);backdrop-filter:blur(12px);z-index:9000;display:none;place-items:center;padding:20px}
+.modal.show{display:grid}.modal-card{width:min(520px,100%);background:var(--paper);color:var(--ink);border-radius:25px;padding:30px;position:relative}
+.modal-card h3{font:42px var(--serif);margin:0 0 10px}.close{position:absolute;right:18px;top:14px;border:0;background:none;font-size:28px;cursor:pointer}
+form{display:grid;gap:12px;margin-top:20px}input,select,textarea{width:100%;padding:14px;border:1px solid #d2c2ab;border-radius:10px;background:#fffaf2;font:inherit}textarea{min-height:90px}
+form button{border:0;background:var(--wine);color:#fff;padding:14px;border-radius:999px;cursor:pointer}
+
+/* animations */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s ease}.reveal.visible{opacity:1;transform:none}
+@keyframes spin{to{transform:rotate(405deg)}}@keyframes float{50%{transform:rotate(55deg) scale(1.04)}}@keyframes fall{0%{top:-10%;transform:rotate(0)}100%{top:110%;transform:rotate(360deg) translateX(80px)}}
+
+@media(max-width:850px){
+  .navlinks{display:none}.menu{display:block}
+  .navlinks.mobile{position:absolute;top:70px;left:4%;right:4%;display:grid;gap:0;background:rgba(15,12,9,.96);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .navlinks.mobile a{padding:15px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .events{grid-template-columns:1fr 1fr}.event:last-child{grid-column:1/-1}
+  .story-grid,.venue-grid{grid-template-columns:1fr}.story-photo{height:430px}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 180px 220px}.g1{grid-row:1/3}.g5{grid-column:1/3}
+}
+@media(max-width:560px){
+  .hero h1{font-size:75px}.hero h1 span{font-size:42px}
+  .count-grid{grid-template-columns:1fr 1fr;gap:25px}.count-box:nth-child(2){border:0}.count-box{border-bottom:1px solid #d8cbb7;padding-bottom:18px}
+  .events{grid-template-columns:1fr}.event:last-child{grid-column:auto}
+  .story-photo{height:390px;box-shadow:12px 12px 0 #d7bd8b}.story{padding:75px 0}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:170px 150px 170px}.g1{grid-row:1/3}.g5{grid-column:1/3}
+  .venue-copy .title{font-size:55px}.map-card{height:300px}
+}
+</style>
 </head>
+<body class="locked">
 
-<body>
-
-<!-- ======================================
-     THE MAGIC OPENING SYSTEM
-     NO JAVASCRIPT REQUIRED
-======================================= -->
-
-<input type="checkbox" id="invitationToggle">
-
-<div class="opening-screen">
-
-    <div class="floating-flower flower-one">✿</div>
-    <div class="floating-flower flower-two">❀</div>
-    <div class="floating-flower flower-three">✦</div>
-
-    <div class="opening-card">
-
-        <p class="mini-title">
-            A BEAUTIFUL BEGINNING
-        </p>
-
-        <div class="mandala">
-            ❋
-        </div>
-
-        <p class="invite-line">
-            YOU ARE CORDIALLY INVITED TO
-        </p>
-
-        <h1>
-            Ananya
-            <span>&</span>
-            Arjun
-        </h1>
-
-        <div class="gold-line"></div>
-
-        <p class="opening-date">
-            24 · 11 · 2026
-        </p>
-
-        <p class="opening-message">
-            Together with their families,<br>
-            they invite you to celebrate<br>
-            love, laughter & forever.
-        </p>
-
-        <label for="invitationToggle" class="open-button">
-            OPEN INVITATION
-            <span>→</span>
-        </label>
-
-    </div>
-
+<!-- CINEMATIC ENTRY -->
+<div class="intro" id="intro">
+  <div class="petals"><i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i><i class="petal"></i></div>
+  <div class="mandala"></div>
+  <div class="intro-card">
+    <div class="mini-logo">A & R</div>
+    <p>Together with their families</p>
+    <h1>Aarav <span>&</span> Riya</h1>
+    <p>invite you to celebrate their wedding</p>
+    <button class="open-btn" id="openInvitation"><span class="dot"></span> Enter the celebration</button>
+  </div>
 </div>
 
-
-<!-- ======================================
-     FLOATING DECORATION
-======================================= -->
-
-<div class="floating-decoration decor-one">✦</div>
-<div class="floating-decoration decor-two">♡</div>
-<div class="floating-decoration decor-three">✿</div>
-
-
-<!-- ======================================
-     HERO
-======================================= -->
-
-<header class="hero">
-
-    <div class="hero-glow"></div>
-
-    <div class="hero-content">
-
-        <p class="eyebrow">
-            THE WEDDING CELEBRATION OF
-        </p>
-
-        <h2>
-            Ananya
-            <span>&</span>
-            Arjun
-        </h2>
-
-        <p class="hero-date">
-            24 November 2026
-        </p>
-
-        <div class="hero-ornament">
-            ❦
-        </div>
-
-        <p class="hero-description">
-            Two hearts.<br>
-            One beautiful journey.<br>
-            A lifetime of memories.
-        </p>
-
-        <a href="#events" class="gold-button">
-            DISCOVER OUR CELEBRATION
-        </a>
-
+<header class="hero section" id="home">
+  <nav class="nav">
+    <a href="#home" class="brand">A & R</a>
+    <div class="navlinks" id="navlinks">
+      <a href="#story">Our Story</a><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#venue">Venue</a><a href="#rsvp">RSVP</a>
     </div>
-
+    <button class="menu" id="menu">☰</button>
+  </nav>
+  <div class="hero-content reveal">
+    <div class="hero-top">Together with their families</div>
+    <h1>Aarav <span>&</span> Riya</h1>
+    <div class="hero-meta">Two hearts · One journey · Forever</div>
+    <div class="hero-location">15 November 2025 · Udaipur, Rajasthan</div>
+    <div class="scroll-cue">Scroll to discover <b></b></div>
+  </div>
 </header>
 
-
-<!-- ======================================
-     COUPLE
-======================================= -->
-
-<section class="section couple">
-
-    <div class="heading">
-
-        <p class="eyebrow">
-            MEET THE COUPLE
-        </p>
-
-        <h2>
-            Two Souls,
-            One Story
-        </h2>
-
-        <div class="ornament-line">
-            ✦
-        </div>
-
+<section class="countdown section reveal" id="countdown">
+  <div class="container" style="text-align:center">
+    <div class="kicker" style="color:#9a7844">The big day</div>
+    <h2 class="title">Counting the moments</h2>
+    <div class="count-grid">
+      <div class="count-box"><div class="count-num" id="days">00</div><div class="count-label">Days</div></div>
+      <div class="count-box"><div class="count-num" id="hours">00</div><div class="count-label">Hours</div></div>
+      <div class="count-box"><div class="count-num" id="mins">00</div><div class="count-label">Minutes</div></div>
+      <div class="count-box"><div class="count-num" id="secs">00</div><div class="count-label">Seconds</div></div>
     </div>
-
-
-    <div class="couple-wrapper">
-
-        <article class="couple-card">
-
-            <div class="portrait bride">
-
-                <div class="portrait-glow"></div>
-
-                <div class="portrait-symbol">
-                    ♡
-                </div>
-
-            </div>
-
-            <p class="role">
-                THE BRIDE
-            </p>
-
-            <h3>
-                Ananya Sharma
-            </h3>
-
-            <p>
-                A warm smile, a kind heart and
-                a beautiful soul ready to begin
-                her forever.
-            </p>
-
-        </article>
-
-
-        <div class="couple-heart">
-            ♡
-        </div>
-
-
-        <article class="couple-card">
-
-            <div class="portrait groom">
-
-                <div class="portrait-glow"></div>
-
-                <div class="portrait-symbol">
-                    ✦
-                </div>
-
-            </div>
-
-            <p class="role">
-                THE GROOM
-            </p>
-
-            <h3>
-                Arjun Mehta
-            </h3>
-
-            <p>
-                A calm spirit, a cheerful heart
-                and a lifetime of dreams to
-                share with his best friend.
-            </p>
-
-        </article>
-
-    </div>
-
+    <div class="quote">“The best love stories are written in the stars, but ours was written in our hearts.”</div>
+  </div>
 </section>
 
-
-<!-- ======================================
-     QUOTE
-======================================= -->
-
-<section class="quote-section">
-
-    <div class="quote-symbol">
-        “
+<section class="dark section" id="events">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">The wedding week</div>
+      <h2 class="title">Five moments. One celebration.</h2>
+      <p class="subtitle">Come dressed in your brightest smiles and celebrate every chapter with us.</p>
     </div>
-
-    <h2>
-        And suddenly,
-        all the little things
-        became a love story.
-    </h2>
-
-    <p>
-        A story of two people who found
-        something extraordinary in an
-        ordinary hello.
-    </p>
-
+    <div class="events">
+      <article class="event reveal">
+        <div class="event-photo" style="background-image:url('https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=85')"><span class="event-num">01</span></div>
+        <div class="event-body"><h3>Haldi</h3><p><strong>12 Nov 2025</strong></p><p>10:00 AM onwards</p><p>The Royal Courtyard</p><div class="dress">Yellow · Pastel</div></div>
+      </article>
+      <article class="event reveal">
+        <div class="event-photo" style="background-image:url('https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=900&q=85')"><span class="event-num">02</span></div>
+        <div class="event-body"><h3>Mehndi</h3><p><strong>13 Nov 2025</strong></p><p>5:00 PM onwards</p><p>The Garden Lawn</p><div class="dress">Green · Shades</div></div>
+      </article>
+      <article class="event reveal">
+        <div class="event-photo" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85')"><span class="event-num">03</span></div>
+        <div class="event-body"><h3>Sangeet</h3><p><strong>14 Nov 2025</strong></p><p>7:00 PM onwards</p><p>The Grand Ballroom</p><div class="dress">Glam · Sparkle</div></div>
+      </article>
+      <article class="event reveal">
+        <div class="event-photo" style="background-image:url('https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=900&q=85')"><span class="event-num">04</span></div>
+        <div class="event-body"><h3>Wedding</h3><p><strong>15 Nov 2025</strong></p><p>7:00 AM onwards</p><p>The Royal Palace</p><div class="dress">Traditional</div></div>
+      </article>
+      <article class="event reveal">
+        <div class="event-photo" style="background-image:url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85')"><span class="event-num">05</span></div>
+        <div class="event-body"><h3>Reception</h3><p><strong>15 Nov 2025</strong></p><p>7:00 PM onwards</p><p>The Royal Palace</p><div class="dress">Formal · Indo-Western</div></div>
+      </article>
+    </div>
+  </div>
 </section>
 
-
-<!-- ======================================
-     COUNTDOWN
-======================================= -->
-
-<section class="section countdown-section">
-
-    <div class="heading">
-
-        <p class="eyebrow">
-            SAVE THE DATE
-        </p>
-
-        <h2>
-            The Countdown
-        </h2>
-
-        <div class="ornament-line">
-            ✦
-        </div>
-
+<section class="story section" id="story">
+  <div class="container story-grid">
+    <div class="story-photo reveal"></div>
+    <div class="story-copy reveal">
+      <div class="kicker">Our story</div>
+      <h2 class="title">Different paths.<br>Same destination.</h2>
+      <div class="timeline">
+        <div class="tl"><small>2018 · THE BEGINNING</small><h4>We met</h4><p>A college fest, a shared laugh, and a conversation neither of us wanted to end.</p></div>
+        <div class="tl"><small>2019 · THE FIRST DATE</small><h4>Coffee & conversations</h4><p>One coffee became many conversations, and friendship quietly became something more.</p></div>
+        <div class="tl"><small>2020–2024 · TOGETHER</small><h4>Every high & low</h4><p>We grew together, travelled together and learned that home can be a person.</p></div>
+        <div class="tl"><small>2025 · THE NEXT CHAPTER</small><h4>Forever begins here</h4><p>Now we are ready to write the most beautiful chapter yet.</p></div>
+      </div>
     </div>
-
-
-    <div class="countdown">
-
-        <div>
-            <strong id="days">00</strong>
-            <span>DAYS</span>
-        </div>
-
-        <div>
-            <strong id="hours">00</strong>
-            <span>HOURS</span>
-        </div>
-
-        <div>
-            <strong id="minutes">00</strong>
-            <span>MINUTES</span>
-        </div>
-
-        <div>
-            <strong id="seconds">00</strong>
-            <span>SECONDS</span>
-        </div>
-
-    </div>
-
-    <p class="date-note">
-        24 November 2026 · 7:00 PM
-    </p>
-
+  </div>
 </section>
 
-
-<!-- ======================================
-     EVENTS
-======================================= -->
-
-<section id="events" class="section events">
-
-    <div class="heading light">
-
-        <p class="eyebrow">
-            FOUR DAYS OF LOVE & CELEBRATION
-        </p>
-
-        <h2>
-            The Wedding Festivities
-        </h2>
-
-        <div class="ornament-line">
-            ✦
-        </div>
-
+<section class="gallery section" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Little moments</div>
+      <h2 class="title">Our gallery</h2>
+      <p class="subtitle">Some memories are better felt than described.</p>
     </div>
+    <div class="gallery-grid reveal">
+      <div class="g g1"></div><div class="g g2"></div><div class="g g3"></div><div class="g g4"></div><div class="g g5"></div>
+    </div>
+  </div>
+</section>
 
+<section class="venue section" id="venue">
+  <div class="container venue-grid">
+    <div class="map-card reveal"><div class="pin">📍</div></div>
+    <div class="venue-copy reveal">
+      <div class="kicker" style="color:#9a7844">The celebration</div>
+      <h2 class="title">Meet us in<br>Udaipur.</h2>
+      <h3>The Royal Palace, Udaipur</h3>
+      <p>City Palace Complex, Udaipur, Rajasthan 313001<br>Come early, stay late, and celebrate every little moment with us.</p>
+      <div class="actions">
+        <a class="pill-btn" href="https://www.google.com/maps/search/?api=1&query=City+Palace+Udaipur+Rajasthan" target="_blank">Get directions ↗</a>
+        <a class="pill-btn" href="https://www.google.com/maps/search/?api=1&query=City+Palace+Udaipur+Rajasthan" target="_blank">View on map ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="events-container">
-
-
-        <!-- HALDI -->
-
-        <article class="event">
-
-            <div class="event-number">
-                01
-            </div>
-
-            <div class="event-icon">
-                ☀
-            </div>
-
-            <p class="event-type">
-                PRE-WEDDING
-            </p>
-
-            <h3>
-                Haldi
-            </h3>
-
-            <p class="event-date">
-                22 November 2026
-            </p>
-
-            <p class="event-time">
-                10:00 AM
-            </p>
-
-            <div class="event-line"></div>
-
-            <p class="venue">
-                The Sharma Residence<br>
-                Jaipur, Rajasthan
-            </p>
-
-            <a href="https://www.google.com/maps"
-               target="_blank"
-               class="location">
-                VIEW LOCATION →
-            </a>
-
-        </article>
-
-
-        <!-- MEHNDI -->
-
-        <article class="event">
-
-            <div class="event-number">
-                02
-            </div>
-
-            <div class="event-icon">
-                ❀
-            </div>
-
-            <p class="event-type">
-                PRE-WEDDING
-            </p>
-
-            <h3>
-                Mehndi
-            </h3>
-
-            <p class="event-date">
-                22 November 2026
-            </p>
-
-            <p class="event-time">
-                5:00 PM
-            </p>
-
-            <div class="event-line"></div>
-
-            <p class="venue">
-                The Royal Courtyard<br>
-                Jaipur, Rajasthan
-            </p>
-
-            <a href="https://www.google.com/maps"
-               target="_blank"
-               class="location">
-                VIEW LOCATION →
-            </a>
-
-        </article>
-
-
-        <!-- SANGEET -->
-
-        <article class="event featured">
-
-            <div class="event-number">
-                03
-            </div>
-
-            <div class="event-icon">
-                ✦
-            </div>
-
-            <p class="event-type">
-                MUSIC & DANCE
-            </p>
-
-            <h3>
-                Sangeet
-            </h3>
-
-            <p class="event-date">
-                23 November 2026
-            </p>
-
-            <p class="event-time">
-                7:30 PM
-            </p>
-
-            <div class="event-line"></div>
-
-            <p class="venue">
-                The Royal Courtyard<br>
-                Jaipur, Rajasthan
-            </p>
-
-            <a href="https://www.google.com/maps"
-               target="_blank"
-               class="location">
-                VIEW LOCATION →
-            </a>
-
-        </article>
-
-
-        <!-- WEDDING -->
-
-        <article class="event
+<section class="rsvp section" id="rsvp">
+  <div class="container">
+    <div class="rsvp-box reveal">
+      <div class="kicker">Before you go</div>
+      <h2>Will you join us?</h2>
+      <p>Your presence is the greatest gift. Tell us if you will be there to celebrate this beautiful beginning.</
