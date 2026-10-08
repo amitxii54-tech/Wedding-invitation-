@@ -1,168 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#5d1f2a">
-  <meta name="description" content="Premium digital wedding invitation">
-  <title>Ananya & Arjun — Wedding Invitation</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#4b1021">
+<title>Ananya & Arjun | Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="intro" class="intro">
-    <div class="intro-card">
-      <div class="ornament">❦</div>
-      <p class="eyebrow" data-i18n="youAreInvited">You Are Invited</p>
-      <h1><span id="introNames">Ananya & Arjun</span></h1>
-      <p id="introDate">18 January 2027</p>
-      <button id="openInvitation" class="btn primary" data-i18n="openInvitation">Open Invitation</button>
-      <button id="skipIntro" class="skip" data-i18n="skip">Skip</button>
-    </div>
-    <div class="petals petals-intro" aria-hidden="true"></div>
-  </div>
+<div class="petals" aria-hidden="true"><span>✦</span><span>❀</span><span>✦</span><span>❁</span><span>✦</span></div>
 
-  <header class="topbar">
-    <a class="brand" href="#home">A<span>&</span>A</a>
-    <div class="top-actions">
-      <button id="langToggle" class="icon-btn" aria-label="Switch language">हिंदी</button>
-      <button id="musicToggle" class="icon-btn" aria-label="Toggle music">♪</button>
-    </div>
-  </header>
-
-  <main>
-    <section id="home" class="hero section">
-      <div class="hero-decoration left">❀</div>
-      <div class="hero-content reveal">
-        <p class="eyebrow" data-i18n="together">Together with their families</p>
-        <h1><span id="brideHero">Ananya</span> <span class="amp">&</span> <span id="groomHero">Arjun</span></h1>
-        <p class="hero-sub" data-i18n="inviteText">invite you to celebrate their wedding</p>
-        <div class="date-pill"><span id="heroDate">18 January 2027</span></div>
-        <a href="#events" class="scroll-link" data-i18n="explore">Explore Invitation ↓</a>
-      </div>
-      <div class="hero-decoration right">❀</div>
-      <div class="floating-flower f1">✿</div>
-      <div class="floating-flower f2">✾</div>
-      <div class="floating-flower f3">❀</div>
-    </section>
-
-    <section class="section couple">
-      <div class="section-heading reveal">
-        <span class="ornament">❦</span>
-        <p class="eyebrow" data-i18n="theCouple">The Couple</p>
-        <h2 data-i18n="twoHearts">Two hearts, one beautiful beginning</h2>
-      </div>
-      <div class="couple-grid">
-        <article class="person-card reveal">
-          <div class="portrait"><img src="assets/bride.svg" alt="Bride Ananya"></div>
-          <p class="role" data-i18n="theBride">The Bride</p>
-          <h3 id="brideName">Ananya Sharma</h3>
-          <p id="brideBio">Grace, warmth and a beautiful smile — the heart of this celebration.</p>
-        </article>
-        <div class="heart-divider">♡</div>
-        <article class="person-card reveal">
-          <div class="portrait"><img src="assets/groom.svg" alt="Groom Arjun"></div>
-          <p class="role" data-i18n="theGroom">The Groom</p>
-          <h3 id="groomName">Arjun Mehta</h3>
-          <p id="groomBio">Kindness, laughter and a promise to build a beautiful life together.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section countdown-section">
-      <div class="section-heading reveal">
-        <p class="eyebrow" data-i18n="countingDown">Counting down to forever</p>
-        <h2 id="countdownTitle" data-i18n="bigDay">The Big Day</h2>
-      </div>
-      <div class="countdown reveal" id="countdown">
-        <div><strong id="days">00</strong><span data-i18n="days">Days</span></div>
-        <div><strong id="hours">00</strong><span data-i18n="hours">Hours</span></div>
-        <div><strong id="minutes">00</strong><span data-i18n="minutes">Minutes</span></div>
-        <div><strong id="seconds">00</strong><span data-i18n="seconds">Seconds</span></div>
-      </div>
-    </section>
-
-    <section id="events" class="section events">
-      <div class="section-heading reveal">
-        <span class="ornament">✦</span>
-        <p class="eyebrow" data-i18n="celebrations">The Celebrations</p>
-        <h2 data-i18n="joinUs">Join us for these beautiful moments</h2>
-      </div>
-      <div id="eventsGrid" class="events-grid"></div>
-    </section>
-
-    <section class="section story">
-      <div class="story-card reveal">
-        <span class="ornament">❦</span>
-        <p class="eyebrow" data-i18n="ourStory">Our Story</p>
-        <h2 id="storyTitle">A little story of two hearts</h2>
-        <p id="storyText">Somewhere between ordinary days and unexpected moments, Ananya and Arjun found a friendship that slowly became something more. Today, surrounded by the people they love, they begin their next chapter together.</p>
-      </div>
-    </section>
-
-    <section class="section gallery-section">
-      <div class="section-heading reveal">
-        <p class="eyebrow" data-i18n="memories">Beautiful Memories</p>
-        <h2 data-i18n="galleryTitle">A glimpse into their story</h2>
-      </div>
-      <div id="gallery" class="gallery"></div>
-    </section>
-
-    <section class="section family">
-      <div class="family-card reveal">
-        <span class="ornament">❦</span>
-        <p class="eyebrow" data-i18n="blessings">With the blessings of our families</p>
-        <div class="family-grid">
-          <div><span data-i18n="brideFamily">Bride's Family</span><strong id="brideFamily">The Sharma Family</strong></div>
-          <div><span data-i18n="groomFamily">Groom's Family</span><strong id="groomFamily">The Mehta Family</strong></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section location">
-      <div class="section-heading reveal">
-        <p class="eyebrow" data-i18n="venue">The Venue</p>
-        <h2 id="venueName">The Royal Courtyard</h2>
-        <p id="venueLocation">Jaipur, Rajasthan</p>
-        <a id="mainMapButton" class="btn outline" href="#" target="_blank" rel="noopener" data-i18n="getDirections">Get Directions</a>
-      </div>
-    </section>
-
-    <section class="section rsvp">
-      <div class="rsvp-card reveal">
-        <div class="rsvp-flower">✿</div>
-        <p class="eyebrow" data-i18n="rsvp">RSVP</p>
-        <h2 data-i18n="presence">Your presence would mean the world to us</h2>
-        <p data-i18n="confirmText">Please let us know if you can join our celebration.</p>
-        <div class="rsvp-actions">
-          <a id="rsvpButton" class="btn primary" href="#" target="_blank" rel="noopener" data-i18n="confirm">Confirm Your Presence</a>
-          <a id="callButton" class="btn outline" href="#" data-i18n="contact">Contact Us</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section share-section">
-      <button id="shareButton" class="btn outline reveal" data-i18n="share">Share Invitation</button>
-    </section>
-  </main>
-
-  <footer>
+<div id="intro" class="intro">
+  <div class="mandala"></div>
+  <div class="intro-card">
+    <div class="smallcaps">Together with their families</div>
+    <div class="monogram">A <span>&</span> A</div>
+    <h1>Ananya <i>&</i> Arjun</h1>
+    <p>invite you to celebrate their wedding</p>
     <div class="ornament">❦</div>
-    <h2 id="footerNames">Ananya & Arjun</h2>
-    <p data-i18n="footerText">With love, laughter and happily ever after.</p>
-  </footer>
-
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <button id="closeLightbox" class="close-lightbox" aria-label="Close">×</button>
-    <img id="lightboxImage" src="" alt="Wedding memory">
+    <div class="intro-date">18 · 01 · 2027</div>
+    <button id="openBtn" class="gold-btn">Open Invitation <span>→</span></button>
   </div>
+</div>
 
-  <audio id="weddingMusic" loop preload="none">
-    <source src="assets/wedding-music.mp3" type="audio/mpeg">
-  </audio>
+<header class="topbar">
+  <a class="brand" href="#home">A<span>&</span>A</a>
+  <nav>
+    <a href="#couple">Couple</a><a href="#events">Events</a><a href="#story">Story</a><a href="#gallery">Gallery</a><a href="#rsvp">RSVP</a>
+  </nav>
+  <div class="tools"><button id="langBtn">हिंदी</button><button id="musicBtn">♫</button></div>
+</header>
 
-  <script src="script.js"></script>
+<main>
+<section id="home" class="hero section">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="eyebrow">A celebration of love</div>
+    <h2>Two hearts.<br><em>One beautiful beginning.</em></h2>
+    <p>With joyful hearts and the blessings of our families, we invite you to share in the beginning of our forever.</p>
+    <a class="gold-btn" href="#events">View Celebration <span>↓</span></a>
+  </div>
+  <div class="hero-date"><strong>18</strong><span>JANUARY<br>2027</span></div>
+</section>
+
+<section id="couple" class="section couple">
+  <div class="section-head"><div class="eyebrow">The couple</div><h2>Meet the <em>bride & groom</em></h2><p>A little glimpse into the two souls who found their way to each other.</p></div>
+  <div class="couple-grid">
+    <article class="person-card">
+      <div class="portrait"><img src="assets/bride.svg" alt="Bride"><span class="portrait-label">The Bride</span></div>
+      <h3>Ananya Sharma</h3><p>Graceful, warm-hearted and full of little dreams.</p>
+      <div class="family-line">Daughter of The Sharma Family</div>
+    </article>
+    <div class="ampersand">+</div>
+    <article class="person-card">
+      <div class="portrait"><img src="assets/groom.svg" alt="Groom"><span class="portrait-label">The Groom</span></div>
+      <h3>Arjun Mehta</h3><p>Kind, cheerful and always ready for an adventure.</p>
+      <div class="family-line">Son of The Mehta Family</div>
+    </article>
+  </div>
+</section>
+
+<section class="quote section">
+  <div class="quote-mark">“</div>
+  <blockquote>And suddenly, all the love songs made sense.</blockquote>
+  <div class="ornament">✦ ❦ ✦</div>
+</section>
+
+<section class="count-section section">
+  <div class="section-head light"><div class="eyebrow">The countdown</div><h2>Until our <em>big day</em></h2></div>
+  <div id="countdown" class="countdown">
+    <div><strong id="days">00</strong><span>Days</span></div><i>:</i><div><strong id="hours">00</strong><span>Hours</span></div><i>:</i><div><strong id="minutes">00</strong><span>Minutes</span></div><i>:</i><div><strong id="seconds">00</strong><span>Seconds</span></div>
+  </div>
+</section>
+
+<section id="events" class="section">
+  <div class="section-head"><div class="eyebrow">Save the dates</div><h2>Wedding <em>celebrations</em></h2><p>Come dressed in your festive best and celebrate every beautiful moment with us.</p></div>
+  <div class="event-grid">
+    <article class="event-card"><div class="event-icon">☼</div><div class="event-date">17 <small>JAN</small></div><h3>Haldi Ceremony</h3><p>11:00 AM</p><span>The Royal Courtyard<br>Jaipur, Rajasthan</span><a href="#" class="map-link" data-map="">View on map →</a></article>
+    <article class="event-card featured"><div class="event-icon">♢</div><div class="event-date">18 <small>JAN</small></div><h3>Wedding Ceremony</h3><p>7:30 PM</p><span>The Royal Courtyard<br>Jaipur, Rajasthan</span><a href="#" class="map-link" data-map="">View on map →</a></article>
+  </div>
+</section>
+
+<section id="story" class="section story">
+  <div class="story-art"><div class="ring">♡</div></div>
+  <div class="story-copy"><div class="eyebrow">Our story</div><h2>A journey worth <em>celebrating</em></h2><p>Some stories begin with a hello. Ours became a collection of conversations, laughter, family moments and countless little reasons to choose each other.</p><p>Now, with the blessings of everyone we love, we are ready to begin our next chapter.</p><div class="signature">Ananya <span>&</span> Arjun</div></div>
+</section>
+
+<section id="gallery" class="section">
+  <div class="section-head"><div class="eyebrow">Captured moments</div><h2>Love in <em>frames</em></h2></div>
+  <div class="gallery">
+    <img src="assets/gallery1.svg" alt="Wedding moment"><img src="assets/gallery2.svg" alt="Wedding moment"><img src="assets/gallery3.svg" alt="Wedding moment"><img src="assets/gallery4.svg" alt="Wedding moment"><img src="assets/gallery5.svg" alt="Wedding moment"><img src="assets/gallery6.svg" alt="Wedding moment">
+  </div>
+</section>
+
+<section class="family section">
+  <div class="section-head"><div class="eyebrow">With blessings</div><h2>Our <em>families</em></h2></div>
+  <div class="family-grid"><div><span>From the bride's side</span><h3>The Sharma Family</h3></div><div><span>From the groom's side</span><h3>The Mehta Family</h3></div></div>
+</section>
+
+<section id="rsvp" class="rsvp section">
+  <div class="rsvp-card"><div class="eyebrow">We'd love to have you</div><h2>Will you <em>join us?</em></h2><p>Your presence will make our celebration even more special.</p><div class="rsvp-actions"><a id="whatsapp" class="gold-btn" href="#">RSVP on WhatsApp →</a><button id="shareBtn" class="outline-btn">Share Invitation</button></div></div>
+</section>
+</main>
+
+<footer><div class="monogram">A <span>&</span> A</div><p>Made with love for a beautiful beginning.</p><small>18 January 2027 · Jaipur</small></footer>
+
+<audio id="music" loop src="music.mp3"></audio>
+<script src="script.js"></script>
 </body>
 </html>
