@@ -291,4 +291,67 @@ form button{border:0;background:var(--wine);color:#fff;padding:14px;border-radiu
     <div class="rsvp-box reveal">
       <div class="kicker">Before you go</div>
       <h2>Will you join us?</h2>
-      <p>Your presence is the greatest gift. Tell us if you will be there to celebrate this beautiful beginning.</
+      <p>Your presence is the greatest gift. Tell us if you will be there to celebrate this beautiful beginning.</p>
+      <button class="open-btn" id="rsvpBtn"><span class="dot"></span> Confirm attendance</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <strong>Aarav & Riya</strong>
+  With love, laughter & a little bit of forever · 15 November 2025 · Udaipur, Rajasthan
+</footer>
+
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <button class="close" id="closeModal">×</button>
+    <div class="kicker" style="color:#9a7844">RSVP</div>
+    <h3>We'd love to have you.</h3>
+    <p style="color:#6e6255">This is a demo RSVP form. Connect it to WhatsApp, Google Sheets or your preferred backend later.</p>
+    <form id="rsvpForm">
+      <input required placeholder="Your name">
+      <select required><option value="">Will you attend?</option><option>Joyfully, yes!</option><option>Sorry, can't make it</option></select>
+      <input placeholder="Number of guests" type="number" min="1" max="20">
+      <textarea placeholder="A little message for the couple"></textarea>
+      <button type="submit">Send RSVP</button>
+    </form>
+  </div>
+</div>
+
+<script>
+const body=document.body;
+const intro=document.getElementById('intro');
+document.getElementById('openInvitation').addEventListener('click',()=>{
+  intro.classList.add('opened');
+  body.classList.remove('locked');
+  setTimeout(()=>intro.remove(),1100);
+});
+
+const menu=document.getElementById('menu'), links=document.getElementById('navlinks');
+menu.addEventListener('click',()=>links.classList.toggle('mobile'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('mobile')));
+
+const target=new Date('2025-11-15T19:00:00+05:30').getTime();
+function tick(){
+  const d=Math.max(0,target-Date.now());
+  document.getElementById('days').textContent=Math.floor(d/86400000).toString().padStart(2,'0');
+  document.getElementById('hours').textContent=Math.floor(d/3600000%24).toString().padStart(2,'0');
+  document.getElementById('mins').textContent=Math.floor(d/60000%60).toString().padStart(2,'0');
+  document.getElementById('secs').textContent=Math.floor(d/1000%60).toString().padStart(2,'0');
+}
+tick();setInterval(tick,1000);
+
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const modal=document.getElementById('modal');
+document.getElementById('rsvpBtn').onclick=()=>modal.classList.add('show');
+document.getElementById('closeModal').onclick=()=>modal.classList.remove('show');
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('show')});
+document.getElementById('rsvpForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  e.target.innerHTML='<div style="text-align:center;padding:25px"><h3 style="font:42px var(--serif)">Thank you!</h3><p style="color:#6e6255">Your RSVP has been recorded for this demo.</p></div>';
+});
+</script>
+</body>
+</html>
