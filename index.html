@@ -1,161 +1,405 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#5a1830">
-  <title>[BRIDE NAME] & [GROOM NAME] | Wedding Invitation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ananya & Arjun | Wedding Invitation</title>
+  <meta name="description" content="You are warmly invited to celebrate the wedding of Ananya & Arjun.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="floating florals" aria-hidden="true">✦ ❀ ✧ ❀ ✦</div>
 
+<body class="no-scroll">
+
+  <!-- DEMO LABEL -->
+  <div class="demo-label">DEMO INVITATION</div>
+
+  <!-- OPENING SCREEN -->
   <section id="intro" class="intro">
     <div class="intro-pattern"></div>
-    <div class="intro-card">
-      <p class="eyebrow">A WEDDING INVITATION</p>
-      <div class="rings">◯∞◯</div>
-      <p class="smallcaps">Together with their families</p>
-      <h1>[BRIDE NAME] <span>&amp;</span> [GROOM NAME]</h1>
+
+    <div class="intro-content">
+      <p class="eyebrow">WITH LOVE & BLESSINGS</p>
+
       <div class="ornament">❦</div>
-      <p class="intro-date">[WEDDING DATE]</p>
-      <button id="openBtn" class="gold-btn" type="button">Open Invitation <span>→</span></button>
-      <p class="tap-note">Tap to enter our celebration</p>
+
+      <h1>
+        Ananya
+        <span>&</span>
+        Arjun
+      </h1>
+
+      <p class="intro-date">24 · 11 · 2026</p>
+
+      <p class="intro-message">
+        Together with their families,<br>
+        they invite you to celebrate<br>
+        their beautiful beginning.
+      </p>
+
+      <button id="openBtn" class="gold-btn" type="button">
+        Open Invitation <span>→</span>
+      </button>
     </div>
   </section>
 
-  <main id="invitation">
-    <header class="hero section">
-      <div class="hero-glow"></div>
-      <p class="eyebrow">SAVE THE DATE</p>
-      <h2>Two hearts.<br><em>One beautiful beginning.</em></h2>
-      <p class="hero-copy">With love, laughter and the blessings of our families, we invite you to celebrate the wedding of</p>
-      <div class="names">[BRIDE NAME] <span>&amp;</span> [GROOM NAME]</div>
-      <p class="date-line">[WEDDING DATE] · [VENUE / LOCATION]</p>
-      <div class="hero-actions">
-        <a class="outline-btn" href="#events">View Events</a>
-        <button class="outline-btn" id="shareBtn" type="button">Share Invitation</button>
-      </div>
-    </header>
 
-    <section class="couple section">
+  <!-- MAIN WEBSITE -->
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero section-dark">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow">THE WEDDING OF</p>
+
+        <h2>
+          Ananya
+          <span>&</span>
+          Arjun
+        </h2>
+
+        <p class="hero-date">24 November 2026</p>
+
+        <div class="hero-divider">✦</div>
+
+        <p>
+          Two hearts. One beautiful journey.<br>
+          And a lifetime of memories waiting to be made.
+        </p>
+
+        <a href="#events" class="outline-btn">Explore Invitation</a>
+      </div>
+    </section>
+
+
+    <!-- COUPLE -->
+    <section class="section couple-section">
       <div class="section-heading">
         <p class="eyebrow">THE COUPLE</p>
-        <h2>Made for each other</h2>
-        <p>A little glimpse of the two people at the heart of this celebration.</p>
+        <h2>Two Souls, One Story</h2>
+        <div class="heading-line">✦</div>
       </div>
+
       <div class="couple-grid">
-        <article class="portrait-card">
-          <div class="portrait"><img src="assets/bride.svg" alt="[BRIDE NAME]"></div>
-          <p class="role">THE BRIDE</p><h3>[BRIDE NAME]</h3><p>Grace, warmth &amp; a beautiful smile.</p>
+
+        <article class="person-card">
+          <div class="person-image">
+            <img src="assets/bride.svg" alt="Ananya Sharma">
+          </div>
+
+          <p class="person-role">THE BRIDE</p>
+          <h3>Ananya Sharma</h3>
+
+          <p>
+            A warm heart, a beautiful smile,
+            and a dream of building a life
+            filled with love and laughter.
+          </p>
         </article>
-        <div class="ampersand">♥</div>
-        <article class="portrait-card">
-          <div class="portrait"><img src="assets/groom.svg" alt="[GROOM NAME]"></div>
-          <p class="role">THE GROOM</p><h3>[GROOM NAME]</h3><p>Kindness, laughter &amp; a heart full of dreams.</p>
+
+
+        <div class="ampersand">&</div>
+
+
+        <article class="person-card">
+          <div class="person-image">
+            <img src="assets/groom.svg" alt="Arjun Mehta">
+          </div>
+
+          <p class="person-role">THE GROOM</p>
+          <h3>Arjun Mehta</h3>
+
+          <p>
+            Calm, caring and endlessly optimistic,
+            ready to begin the next chapter
+            with his best friend.
+          </p>
         </article>
+
       </div>
     </section>
 
-    <section class="quote section">
-      <div class="quote-mark">“</div>
-      <p>May our days be filled with laughter,<br>our home with love,<br>and our journey with togetherness.</p>
-      <div class="ornament">❦</div>
-    </section>
 
-    <section class="countdown section">
-      <p class="eyebrow light">THE BIG DAY</p>
-      <h2>Counting every moment</h2>
-      <div class="timer" id="countdown">
-        <div><strong id="days">00</strong><span>Days</span></div>
-        <div><strong id="hours">00</strong><span>Hours</span></div>
-        <div><strong id="minutes">00</strong><span>Minutes</span></div>
-        <div><strong id="seconds">00</strong><span>Seconds</span></div>
+    <!-- QUOTE -->
+    <section class="quote-section">
+      <div class="quote-inner">
+        <div class="quote-mark">“</div>
+
+        <p class="quote">
+          Some stories are written in the stars.
+          Ours is being written together,
+          one beautiful moment at a time.
+        </p>
+
+        <div class="quote-mark">”</div>
       </div>
     </section>
 
-    <section id="events" class="events section">
+
+    <!-- COUNTDOWN -->
+    <section class="section countdown-section">
       <div class="section-heading">
-        <p class="eyebrow">THE CELEBRATIONS</p>
-        <h2>Our wedding events</h2>
-        <p>Join us for these special moments and make them unforgettable.</p>
+        <p class="eyebrow">SAVE THE DATE</p>
+        <h2>The Countdown Begins</h2>
+        <div class="heading-line">✦</div>
       </div>
-      <div class="event-grid">
-        <article class="event-card featured">
-          <div class="event-icon">🌼</div>
-          <p class="role">[HALDI DATE]</p>
-          <h3>Haldi Ceremony</h3>
-          <p class="time">[TIME]</p>
-          <p>Home · [VENUE / LOCATION]</p>
-          <a href="#" data-placeholder="google-maps" target="_blank" rel="noopener">Open in Google Maps ↗</a>
-        </article>
+
+      <div class="countdown" id="countdown">
+
+        <div class="count-box">
+          <strong id="days">00</strong>
+          <span>Days</span>
+        </div>
+
+        <div class="count-box">
+          <strong id="hours">00</strong>
+          <span>Hours</span>
+        </div>
+
+        <div class="count-box">
+          <strong id="minutes">00</strong>
+          <span>Minutes</span>
+        </div>
+
+        <div class="count-box">
+          <strong id="seconds">00</strong>
+          <span>Seconds</span>
+        </div>
+
+      </div>
+
+      <p class="countdown-date">
+        24 November 2026 · 7:00 PM
+      </p>
+    </section>
+
+
+    <!-- EVENTS -->
+    <section id="events" class="section events-section section-dark">
+
+      <div class="section-heading light">
+        <p class="eyebrow">CELEBRATIONS</p>
+        <h2>Wedding Events</h2>
+        <div class="heading-line">✦</div>
+      </div>
+
+
+      <div class="events-grid">
+
+        <!-- HALDI -->
         <article class="event-card">
-          <div class="event-icon">💍</div>
-          <p class="role">[WEDDING DATE]</p>
-          <h3>Marriage Ceremony</h3>
-          <p class="time">[TIME]</p>
-          <p>Home · [VENUE / LOCATION]</p>
-          <a href="#" data-placeholder="google-maps" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+
+          <div class="event-icon">☀</div>
+
+          <p class="event-number">01</p>
+
+          <h3>Haldi Ceremony</h3>
+
+          <p class="event-date">
+            23 November 2026
+          </p>
+
+          <p class="event-time">
+            10:00 AM
+          </p>
+
+          <div class="event-divider"></div>
+
+          <p class="event-venue">
+            The Sharma Residence<br>
+            Jaipur, Rajasthan
+          </p>
+
+          <a
+            href="https://www.google.com/maps"
+            target="_blank"
+            rel="noopener"
+            class="event-link"
+          >
+            View Location →
+          </a>
+
         </article>
+
+
+        <!-- WEDDING -->
+        <article class="event-card featured-event">
+
+          <div class="event-icon">♡</div>
+
+          <p class="event-number">02</p>
+
+          <h3>Wedding Ceremony</h3>
+
+          <p class="event-date">
+            24 November 2026
+          </p>
+
+          <p class="event-time">
+            7:00 PM
+          </p>
+
+          <div class="event-divider"></div>
+
+          <p class="event-venue">
+            The Royal Courtyard<br>
+            Jaipur, Rajasthan
+          </p>
+
+          <a
+            href="https://www.google.com/maps"
+            target="_blank"
+            rel="noopener"
+            class="event-link"
+          >
+            View Location →
+          </a>
+
+        </article>
+
+
+        <!-- RECEPTION -->
+        <article class="event-card">
+
+          <div class="event-icon">✦</div>
+
+          <p class="event-number">03</p>
+
+          <h3>Reception</h3>
+
+          <p class="event-date">
+            25 November 2026
+          </p>
+
+          <p class="event-time">
+            7:30 PM
+          </p>
+
+          <div class="event-divider"></div>
+
+          <p class="event-venue">
+            The Royal Courtyard<br>
+            Jaipur, Rajasthan
+          </p>
+
+          <a
+            href="https://www.google.com/maps"
+            target="_blank"
+            rel="noopener"
+            class="event-link"
+          >
+            View Location →
+          </a>
+
+        </article>
+
       </div>
     </section>
 
-    <section class="story section">
-      <div class="story-card">
-        <p class="eyebrow">OUR STORY</p>
-        <h2>A new chapter begins</h2>
-        <div class="story-line">
-          <div><span>01</span><h3>A beautiful meeting</h3><p>Two journeys crossed paths and slowly became one shared story.</p></div>
-          <div><span>02</span><h3>A promise</h3><p>With the blessings of our loved ones, a promise became a future.</p></div>
-          <div><span>03</span><h3>The forever begins</h3><p>Now we are ready to celebrate the beginning of our next chapter.</p></div>
-        </div>
-      </div>
-    </section>
 
-    <section class="gallery section">
+    <!-- STORY -->
+    <section class="section story-section">
+
       <div class="section-heading">
-        <p class="eyebrow">MOMENTS</p>
-        <h2>A little gallery</h2>
+        <p class="eyebrow">OUR JOURNEY</p>
+        <h2>A Little Love Story</h2>
+        <div class="heading-line">✦</div>
       </div>
-      <div class="gallery-grid">
-        <img src="assets/gallery1.svg" alt="Wedding moment">
-        <img src="assets/gallery2.svg" alt="Wedding moment">
-        <img src="assets/gallery3.svg" alt="Wedding moment">
-        <img src="assets/gallery4.svg" alt="Wedding moment">
-        <img src="assets/gallery5.svg" alt="Wedding moment">
-        <img src="assets/gallery6.svg" alt="Wedding moment">
-      </div>
-    </section>
 
-    <section class="family section">
-      <div class="family-card">
-        <p class="eyebrow">WITH THE BLESSINGS OF</p>
-        <h2>Our families</h2>
-        <div class="family-grid">
-          <div><h3>[GROOM NAME]'s Family</h3><p>Parents &amp; loved ones</p></div>
-          <div><h3>[BRIDE NAME]'s Family</h3><p>Parents &amp; loved ones</p></div>
+
+      <div class="story-content">
+
+        <div class="story-image">
+          <img src="assets/gallery1.svg" alt="Ananya and Arjun">
         </div>
-        <p class="family-note">Your presence and blessings mean the world to us.</p>
+
+        <div class="story-text">
+
+          <p class="story-small">
+            IT ALL STARTED WITH A SIMPLE HELLO...
+          </p>
+
+          <h3>
+            And somehow,
+            it became forever.
+          </h3>
+
+          <p>
+            What began as a simple meeting slowly turned
+            into countless conversations, shared dreams,
+            unforgettable laughter and a friendship that
+            grew into something much more beautiful.
+          </p>
+
+          <p>
+            Through every season of life, Ananya and Arjun
+            discovered that the best part of their journey
+            was having each other by their side.
+          </p>
+
+          <p>
+            Now, surrounded by the people they love,
+            they are ready to begin their forever.
+          </p>
+
+          <div class="story-signature">
+            A + A
+          </div>
+
+        </div>
+
       </div>
     </section>
 
-    <section class="rsvp section">
-      <div class="rsvp-card">
-        <p class="eyebrow">WE WOULD LOVE TO SEE YOU</p>
-        <h2>Be our guest</h2>
-        <p>Please join us and bless the couple as they begin their journey together.</p>
-        <a class="gold-btn" href="https://wa.me/[WHATSAPP NUMBER]?text=Congratulations%20[GROOM NAME]%20%26%20[BRIDE NAME]!%20I%20will%20be%20joining%20your%20wedding." target="_blank" rel="noopener">RSVP on WhatsApp →</a>
+
+    <!-- GALLERY -->
+    <section class="section gallery-section section-dark">
+
+      <div class="section-heading light">
+        <p class="eyebrow">MEMORIES</p>
+        <h2>Moments We Love</h2>
+        <div class="heading-line">✦</div>
+      </div>
+
+
+      <div class="gallery-grid">
+
+        <div class="gallery-item gallery-large">
+          <img src="assets/gallery1.svg" alt="Wedding memory">
+        </div>
+
+        <div class="gallery-item">
+          <img src="assets/gallery2.svg" alt="Wedding memory">
+        </div>
+
+        <div class="gallery-item">
+          <img src="assets/gallery3.svg" alt="Wedding memory">
+        </div>
+
+        <div class="gallery-item">
+          <img src="assets/gallery4.svg" alt="Wedding memory">
+        </div>
+
+        <div class="gallery-item">
+          <img src="assets/gallery5.svg" alt="Wedding memory">
+        </div>
+
+        <div class="gallery-item gallery-wide">
+          <img src="assets/gallery6.svg" alt="Wedding memory">
+        </div>
+
       </div>
     </section>
 
-    <footer>
-      <div class="rings">◯∞◯</div>
-      <h2>[BRIDE NAME] &amp; [GROOM NAME]</h2>
-      <p>[WEDDING DATE] · With love, always.</p>
-      <button id="topBtn" class="text-btn" type="button">Back to top ↑</button>
-    </footer>
-  </main>
 
-  <script src="script.js"></script>
-</body>
-          </html>
+    <!-- FAMILY -->
+    <section class="section family-section">
+
+      <div class="section-heading">
+        <p class="eyebrow">WITH BLESSINGS FROM</p>
+        <h2>Our Families</h2>
+        <div class="heading-line">✦</
