@@ -17,18 +17,16 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--black);color:#fff;font-family:var(--sans);overflow-x:hidden}
-body:has(#entryToggle:checked){overflow:auto}
 a{text-decoration:none;color:inherit}
 button{font:inherit}
 img{max-width:100%}
-
-#entryToggle{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 
 .entry{
   position:fixed;inset:0;z-index:99999;display:grid;place-items:center;
   background:#100b08;overflow:hidden;transition:opacity 1s ease,visibility 1s ease,transform 1s ease;
 }
-#entryToggle:checked ~ .entry{opacity:0;visibility:hidden;pointer-events:none;transform:scale(1.06)}
+.entry:not([open]){opacity:0;visibility:hidden;pointer-events:none;transform:scale(1.06)}
+.entry::backdrop{background:#100b08}
 .entry-ring,.entry-ring2{
   position:absolute;border:1px solid rgba(213,173,98,.25);border-radius:50%;
   width:75vmax;height:75vmax;animation:rotate 32s linear infinite;
@@ -197,9 +195,7 @@ form button{border:0;background:var(--wine);color:white;padding:14px;border-radi
      THE ENTRY IS CSS-CONTROLLED.
      NO JAVASCRIPT IS REQUIRED TO OPEN THE INVITATION.
      ========================================================= -->
-<input type="checkbox" id="entryToggle">
-
-<div class="entry">
+<dialog class="entry" id="entryDialog" open>
   <div class="entry-ring"></div>
   <div class="entry-ring2"></div>
   <div class="entry-mandala"></div>
@@ -210,14 +206,14 @@ form button{border:0;background:var(--wine);color:white;padding:14px;border-radi
     <div class="eyebrow">Together with their families</div>
     <h1>Aarav <span>&</span> Riya</h1>
     <div class="small">Invite you to celebrate their wedding</div>
-
-    <!-- CSS LABEL: THIS IS THE OPEN BUTTON -->
-    <label for="entryToggle" class="enter-label">
-      <span class="enter-dot"></span>
-      Enter the celebration
-    </label>
+    <form method="dialog">
+      <button class="enter-label" type="submit">
+        <span class="enter-dot"></span>
+        Enter the celebration
+      </button>
+    </form>
   </div>
-</div>
+</dialog>
 
 <header class="hero" id="home">
   <nav class="nav">
@@ -458,8 +454,7 @@ form button{border:0;background:var(--wine);color:white;padding:14px;border-radi
 </div>
 
 <script>
-/* The OPEN button does NOT depend on this script.
-   The entry screen is controlled by the checkbox + CSS. */
+/* The opening screen uses the browser-native dialog element, so it does not depend on JavaScript. */
 
 const menu=document.getElementById("menu");
 const navlinks=document.getElementById("navlinks");
