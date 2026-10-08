@@ -90,3 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === $("lightbox")) closeLightbox();
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const intro = document.getElementById("intro");
+  const openBtn = document.getElementById("openBtn");
+
+  if (openBtn && intro) {
+    openBtn.addEventListener("click", function () {
+      intro.classList.add("hide");
+      document.body.classList.remove("locked");
+    });
+  }
+});
