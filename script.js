@@ -1,4 +1,4 @@
-const weddingDate = new Date('2027-01-18T19:30:00+05:30').getTime();
+alert("SCRIPT WORKING");const weddingDate = new Date('2027-01-18T19:30:00+05:30').getTime();
 const whatsappNumber = '919000000000';
 
 document.getElementById('openBtn').addEventListener('click',()=>document.getElementById('intro').classList.add('hide'));
